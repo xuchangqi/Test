@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+		<!--登录 -->
+		<action name="login" class="empAction" method="login">
+			<result name="success">index.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!--注册下拉框加载 -->
+		<action name="select" class="partAction" method="select">
+			<result name="success">addUser.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!--注册 -->
+		<action name="add" class="empAction" method="addOne">
+			<result name="success">login.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+
+		<!--通告管理 -->
+		<action name="getAllAnn" class="annAction" method="getAll">
+			<result name="success">tonggao.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!--新增通告 -->
+		<action name="saveAnn" class="annAction" method="addOne">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getAllAnn</param>
+				<param name="pageIndex">1</param>
+			</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!--删除通告 -->
+		<action name="deleteAnn" class="annAction" method="delete">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getAllAnn</param>
+				<param name="pageIndex">1</param>
+			</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!--根据ID查询 -->
+		<action name="byIdAnn" class="annAction" method="byId">
+			<result name="success">tonggao_update.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!--修改通告 -->
+		<action name="update" class="annAction" method="update">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getAllAnn</param>
+				<param name="pageIndex">1</param>
+			</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<!--文档管理 -->
+		<action name="getAllDoc" class="docAction" method="getAll">
+			<result name="success">wendang.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+
+
+		<!--请假 -->
+		<action name="leave" class="leaveAction" method="getAll">
+			<result name="success">index.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+
+
+		<!--汽车 -->
+		<action name="car" class="carAction" method="getAll">
+			<result name="success">index.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+
+		<!-- 用车管理 -->
+		<!--审批人  -->
+		<action name="getNexts" class="rentcarAction" method="getNextUsers">
+			<result name="success">chuchai.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!-- 新增用车 -->
+		<action name="addOne" class="rentcarAction" method="addOne">
+			<result name="success">yongche.jsp</result>
+		</action>
+		<!-- 分页查询用车 -->
+		<action name="getAll" class="rentcarAction" method="getAll">
+			<result name="success">yongche.jsp</result>
+		</action>
+		<!-- 按ID查询用车 -->
+		<action name="byId" class="rentcarAction" method="byId">
+			<result name="success">yongche.jsp</result>
+		</action>
+		<!-- 修改用车 -->
+		<action name="updates" class="rentcarAction" method="updates">
+			<result name="success">yongche.jsp</result>
+		</action>
+		<!-- 删除用车 -->
+		<action name="delete" class="rentcarAction" method="delete">
+			<result name="success">yongche.jsp</result>
+		</action>
+		
+		<!-- 出差管理 -->
+		<action name="TravelAction" class="trAction" method="addOne1">
+			<result name="success">chuchai.jsp</result>
+		</action>
+		<!--审批人  -->
+		<action name="getNext" class="trAction" method="getNextUser">
+			<result name="success">chuchai.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!-- 分页查询 -->
+		<action name="geall1" class="TravelAction" method="getall1">
+			<result name="success">chuchai.jsp</result>
+		</action>
+		<!-- 按ID查询 -->
+		<action name="byId1" class="TravelAction" method="byId1">
+			<result name="success">chuchai.jsp</result>
+		</action>
+		<!-- 修改 -->
+		<action name="update1" class="TravelAction" method="update1">
+			<result name="success">chuchai.jsp</result>
+		</action>
+		<!-- 删除 -->
+		<action name="delete1" class="TravelAction" method="delete1">
+			<result name="success">chuchai.jsp</result>
+		</action>
+
+	</package>
+</struts>    
